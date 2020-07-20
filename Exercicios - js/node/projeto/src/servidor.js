@@ -3,11 +3,24 @@ const porta = 3003
 
 const express = require('express')
 const app = express()
+const bancoDeDados = require('./bancoDeDados')
 
 app.get('/produtos', (req, res, next) => {
-    res.send({nome: 'Notebook', preco: 1234.46})            // converter para JSON
+    res.send(bancoDeDados.getProdutos())            
 })
 
-app.listen(porta, () => {
+app.get('/produtos/:id', (req, res, next) => {
+    res.send(bancoDeDados.getProduto(req.params.id))            // retorna um produto específico
+})
+
+app.post('/produtos', (req, res, next) => {
+    const produto = bancoDeDados.salvarProduto({                //salvar produtos no corpo da requisição
+        nome: req.body.name,
+        preco: req.body.preco
+    })
+    res.send(produto)       //JSON
+})
+
+app.listen(porta, () => {                                       // 'rs' reinicia o servidor 
     console.log(`Servidor está executando na porta ${porta}.`)
 })
