@@ -6,7 +6,60 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+    /*  * {                                 seleciona todos (no caso o body)
+            color: #ff0;
+            background-color: #f77;
+        }*/
+
+    /*    .tag {                            seletor de classe
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+            #aprovados {                    seletor de id
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*                                   
+            #aninhado > div {               seleciona o que está diretamente relacionado a classe em questão
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+        #aninhado section {                 seleciona a tag indiretamente relacionada
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+        p + ul {                            seleciona a próxima tag relacionada
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+        p ~ ol {                            quando as tags não estão lado a lado,mas dentro de um elemento pai       
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+       [feira] {                            seleciona por atributo
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+        span:nth-child(1) {                 seleciona o primeiro elemento filho
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+        section > :nth-child(odd) {         seleciona os elementos filhos impares (para os pares, utilizar even )      
+            color: #ff0;
+            background-color: #f77;
+        }*/
+        /*
+        section > span:nth-of-type(2) {      seleciona o tipo de tag
+            color: #ff0;
+            background-color: #f77;
+        }*/
     </style>
 </head>
 
@@ -29,7 +82,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
