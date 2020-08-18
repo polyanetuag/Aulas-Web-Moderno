@@ -2,13 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Overflow</title>
+    <title>Overflow</title>                 <!--Especifica quando o conteúdo de um elemento deve aparecer no bloco, por meio de corte, scroll ou transbordo-->
     <style>
         div {
             font-size: 40px;
             height: 100px;
             width: 260px;
             border: solid 3px;
+            /*overflow: hidden;*/           /*Esconde o que estiver fora da caixa*/
+            /*overflow:scroll;*/               /*Permite a rolagem tanto no eixo x quanto no eixo y*/
+           overflow-x: scroll;
         }
     </style>
 </head>
