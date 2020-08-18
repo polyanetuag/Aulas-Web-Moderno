@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Float</title>
+    <title>Float</title>                    <!--Apesar de poder posicionar/flutuar os elementos, hoje não é uma prática muito utilizada, devendo ser usada com cautela-->
     <style>
         body {
             background-color: #222;
@@ -11,18 +11,29 @@
 
         .c1 {
             background-color: red;
+            float: right;
         }
 
         .c2 {
             background-color: green;
+            clear: right;
+            float: left;
         }
         
         .c3 {
             background-color: blue;
+            clear: both;                    /*Dispõe os elementos, sem sobrepor um ao outro (limpa da direita e esquerda)*/
+
         }
 
         .c4 {
             background-color: orange;
+            float: right;
+        }
+
+        div {
+            height: 150px;
+            width: 150px;
         }
     </style>
 </head>
