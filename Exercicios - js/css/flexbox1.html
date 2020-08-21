@@ -6,7 +6,51 @@
     <title>Flexbox #01</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .big {
+            font-size: 1.5em;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            flex-direction: row;
+            width: 50%;
+            flex-wrap: wrap;                /*Quebra de linha, respeitando a largura*/
+            flex-wrap: wrap-reverse;        
+            flex-flow: row wrap;            /*Quebra de linha e coluna*/
+            height: 200px;
+            flex-flow: column-reverse wrap;            /*Quebra de linha e coluna, respeitando as medidas*/
+            flex-flow: row wrap;    
+            
+            justify-content: flex-start;        /*alinhar ao inicio*/
+            justify-content: flex-end;          /*alinhar ao final*/
+            justify-content: center;            /*alinhar ao centro*/
+            justify-content: space-around;      /*alinhar entre os elementos e ao seu redor*/
+            justify-content: space-between;      /*alinhar somente entre os elementos*/
+
+            /*Cross Axis*/
+            height: 400px;
+            align-items: stretch;               /*padrão*/
+            align-items: baseline;              /*Alinha pela base da fonte*/
+            align-items: flex-start;
+            align-items: flex-end;
+            align-items: center;
+
+            /*mais de uma linha*/
+            align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+
+
+
+
+        }
+
+
     </style>
 </head>
 
