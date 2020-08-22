@@ -6,7 +6,43 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            background-color: chartreuse;
+            order: 1;                           /*O elemento passa a ter uma order maior que os demais e é colocado por último*/
+            order: 0;                           /*Ordem padrão dos elementos*/
+            order: -1;                          /*O elemento é de menor order e fica nas primeiras posições*/
+            align-self: center;                 /*Posição do elemento dentro do contexto*/ 
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch;                /*Padrão*/
+        }
+
+        .flex-container div {
+            width: 100px;
+            flex-grow: 0;                       /*Divide os tamanhos para que não haja espaços vazios*/
+            flex-grow: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 1;                     /*Encolhe os elementos*/
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
+
+
     </style>
 </head>
 
