@@ -22,7 +22,37 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log()
+        lista.childNodes.log()
+
+        const primeiro = lista.firstChild
+        primeiro.log()
+        primeiro.nextSibling.log()                                /*Retorna 'Pedro'*/
+
+        const ultimo = lista.lastChild
+        ultimo.log()
+        ultimo.previousSibling.log()                              /*Retorna 'Bia'*/
+
+        lista.children.log()                                      /*Retorna somente a lista li(sem os textos) */
+        lista.firstElementChild.log()
+        lista.lastElementChild.log()
+
+        lista.parentNode.previousElementSibling.log()             /*Primeiro elemento 'div Inicio'*/
+        lista.parentNode.nextElementSibling.log()                 /*Ultimo elemento 'div Fim'*/
+
+        /*Para evitar problemas, pode selecionar diretamente os elementos */
+        document.querySelectorAll('div ul li').log()
+
     </script>
 </body>
 
