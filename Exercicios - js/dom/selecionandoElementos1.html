@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,19 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        document.getElementById('primeiro').classList.add('destaque')               /*Adicionando uma classe*/
+
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))               /*Todos os elementos divs foram transformados em um Array, são percorridos para remover a classe 'destaque'*/
+
+        const divsArray = [...divs]                                                 /*spread*/
+        divsArray.forEach(e => e.classList.add('destaque'))                         /*Todos receberão a classe 'destaque'*/
+
+        /*Selecionar elementos a partir da classe*/
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for(let e of ultimosElementos) {                                            /*Usando o for ao inves do Array*/
+            e.classList.remove('destaque')
+        }
     </script>
 </body>
 </html>
