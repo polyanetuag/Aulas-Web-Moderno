@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 
 <head>
@@ -17,7 +17,27 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"...................')
+        console.log('childNodes', lista.childNodes)
+        console.log('destino', lista.destino)                                       /*Retorna indefined*/
+        console.log('getAttribute', lista.getAttribute('destino'))
+        console.log('hasAttribute', lista.hasAttribute('destino'))                  /*Verifica se existe ou não esse atributo*/
+
+        lista.setAttribute('destino', 'empresa')                                    /*Adiciona ou altera um atributo*/
+        lista.setAttribute('status', 'aberto')                                      /*Adiciona ou altera um atributo*/
+        lista.removeAttribute('destino')
+
+        console.log(lista.dataset.urgencia)
+        lista.dataset.urgencia = 4
+        console.log(lista.getAttribute('data-urgencia'))
+
+        // Cuidado
+        const label = document.querySelector('label')
+        console.log(label.for)
+        console.log(label.htmlFor)                                                  /*Para acessar com a notação ponto, é necessário usar o html*/
+        console.log(label.getAttribute('for'))
+        
     </script>
 </body>
 
