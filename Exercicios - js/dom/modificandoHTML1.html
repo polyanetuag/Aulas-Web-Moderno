@@ -9,7 +9,31 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div')              //Criando o elemento
+        div1.classList.add('destaque')                          //Adicionando uma classe
+        div1.innerHTML = 'Primeiro'                             //Adicionando um texto
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor')
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('div')
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p)                                     // A tag p será adicionada a div , que é o elemento pai 
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+        const texto = document.createTextNode('Antes...')
+        div3.insertBefore(texto, div3.childNodes[0])            //Adiciona o texto e a posição
+
+        const div4 = div3.cloneNode(true)                       //Clonando a div
+        body.appendChild(div4)
+        body.removeChild(div3)                                  //Removendo uma classe 
     </script>
 </body>
 
