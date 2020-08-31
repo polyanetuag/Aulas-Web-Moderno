@@ -29,7 +29,7 @@ function ParDeBarreiras(altura, abertura, x) {
     this.elemento.appendChild(this.inferior.elemento)
 
     this.sortearAbertura = () => {                                      // alternar os espaços entre as colunas
-        const alturaSuperior =Math.random() * (altura - abertura)
+        const alturaSuperior = Math.random() * (altura - abertura)
         const alturaInferior = altura - abertura - alturaSuperior
         this.superior.setAltura(alturaSuperior)
         this.inferior.setAltura(alturaInferior)
@@ -43,5 +43,38 @@ function ParDeBarreiras(altura, abertura, x) {
     this.setX(x)
 }
 
-const b = new ParDeBarreiras(700, 200, 400)
-document.querySelector('[wm-flappy]').appendChild(b.elemento)
+// const b = new ParDeBarreiras(700, 200, 400)                              //testes
+// document.querySelector('[wm-flappy]').appendChild(b.elemento)
+
+function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
+    this.pares = [
+        new ParDeBarreiras(altura, abertura, largura),
+        new ParDeBarreiras(altura, abertura, largura + espaco),
+        new ParDeBarreiras(altura, abertura, largura + espaco * 2),
+        new ParDeBarreiras(altura, abertura, largura + espaco * 3)
+    ]
+
+    const deslocamento = 3
+    this.animar = () => {
+        this.pares.forEach(par => {
+            par.setX(par.getX() - deslocamento)                                 // deslocar as barreiras
+            
+            // quando o elemento sair da área do jogo
+            if (par.getX() < -par.getLargura()) {                               // quando a posição x for menor que a tela
+                par.setX(par.getX() + espaco * this.pares.length)               //vai mudar de posição e começar a deslocar novamente
+                par.sortearAbertura()                                           //para que as barreiras mudem de posicao
+            }
+
+            const meio = largura / 2                                            // para marcar ponto
+            const cruzouOMeio = par.getX() + deslocamento >= meio && par.getX() < meio
+            if (cruzouOMeio) notificarPonto()
+        })
+    }
+}
+
+const barreiras = new Barreiras(700, 1200, 400, 400)
+const areaDoJogo = document.querySelector('[wm-flappy]')
+barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+setInterval(() => {
+    barreiras.animar()
+},20)
