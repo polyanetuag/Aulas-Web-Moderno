@@ -115,6 +115,38 @@ function Passaro(alturaJogo) {
 //     passaro.animar()
 // },20)
 
+function estaoSobrepostos(elementoA, elementoB) {
+  //verificação de sobreposição
+  const a = elementoA.getBoundingClientReact();
+  const b = elementoB.getBoundingClientReact();
+
+  const horizontal =
+    a.left + a.width >= b.left && //verificação horizontal
+    b.left + b.width >= a.left;
+
+  const vertical =
+    a.top + a.height >= b.top && //verificação vertical
+    b.top + b.height >= a.top;
+
+  return horizontal && vertical;
+}
+
+function colidiu(passaro, barreiras) {
+  //verifica se realmente houve a colisao
+  let colidiu = false;
+  barreiras.pares.forEach((ParDeBarreiras) => {
+    if (!colidiu) {
+      const superior = ParDeBarreiras.superior.elemento;
+      const inferior = ParDeBarreiras.inferior.elemento;
+
+      colidiu =
+        estaoSobrepostos(passaro.elemento, superior) ||
+        estaoSobrepostos(passaro.elemento, inferior);
+    }
+  });
+  return colidiu;
+}
+
 function Progresso() {
   this.elemento = novoElemento("span", "progresso");
   this.atualizarPontos = (pontos) => {
@@ -146,6 +178,10 @@ function FlappyBird() {
     const temporizador = setInterval(() => {
       barreiras.animar();
       passaro.animar();
+
+      if (colidiu(passaro, barreiras)) {
+        clearInterval(temporizador);
+      }
     }, 20);
   };
 }
