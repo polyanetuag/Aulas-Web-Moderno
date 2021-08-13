@@ -1,10 +1,17 @@
 const gulp = require("gulp");
+const webserver = require("gulp-webserver");
 
-function monitorarArquivos(cb) {
-  return cb();
+function servidor() {
+  return gulp.src("build").pipe(
+    webserver({
+      port: 8080,
+      open: true,
+      livereload: true,
+    })
+  );
 }
 
-function servidor(cb) {
+function monitorarArquivos(cb) {
   return cb();
 }
 
