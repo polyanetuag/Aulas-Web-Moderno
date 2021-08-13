@@ -31,8 +31,8 @@ function appJS() {
     .pipe(gulp.dest("build/assets/js"));
 }
 
-function appIMG(cb) {
-  return cb();
+function appIMG() {
+  return gulp.src("src/assets/img/**/*.*").pipe(gulp.dest("build/assets/imgs"));
 }
 
 module.exports = {
