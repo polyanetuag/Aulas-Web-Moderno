@@ -13,9 +13,14 @@ function appHTML() {
     .pipe(gulp.dest("build"));
 }
 
-function appCSS(cb) {
-  return cb();
-}
+// function appCSS() {
+//   return gulp
+//     .src("src/assets/sass/index.scss")
+//     .pipe(sass().on("error", sass.logError))
+//     .pipe(uglifycss({ uglyCmomments: true }))
+//     .pipe(concat("app.mim.css"))
+//     .pipe(gulp.dest("build/assets/css"));
+// }
 
 function appJS(cb) {
   return cb();
