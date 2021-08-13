@@ -35,6 +35,12 @@ function appIMG() {
   return gulp.src("src/assets/img/**/*.*").pipe(gulp.dest("build/assets/imgs"));
 }
 
+//REFERENCIA DAS TASKS
+gulp.task("appHTML", appHTML);
+// gulp.task("appCSS", appCSS);
+gulp.task("appJS", appJS);
+gulp.task("appIMG", appIMG);
+
 module.exports = {
   appHTML,
   // appCSS,
