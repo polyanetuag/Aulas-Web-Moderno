@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack",
     "build": "cross-env NODE_ENV=production webpack"
-    
   },
   "keywords": [],
   "author": "",
@@ -14,6 +13,7 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "css-loader": "^0.28.11",
+    "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^6.0.1",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
