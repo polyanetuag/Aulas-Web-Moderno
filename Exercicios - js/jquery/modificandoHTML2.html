@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset='UTF-8'>
+  <head>
+    <meta charset="UTF-8" />
     <title>Modificando HTML #02</title>
-    <link rel='stylesheet' href='css/estilo.css'>
-    <script src='js/jquery.js'></script>
-</head>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <script src="js/jquery.js"></script>
+  </head>
 
-<body class='conteudo exercicio'>
+  <body class="conteudo exercicio">
     <h1>Modificando HTML #02</h1>
-    <div id='div1'>1</div>
-    <div id='div2'>2</div>
-    <div id='div3'>3</div>
-    <p class='numero'>4</p>
-    <p class='numero'>5</p>
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+    <p class="numero">4</p>
+    <p class="numero">5</p>
 
     <script>
-        // ...
+      $("#div1").append(", 2"); //adiciona um elemento
+      $("#div1").prepend(" 0, "); //adiciona no inicio
+      $("<span>, 3</span>").appendTo("#div1"); //criando o elemento e adicionando ao fim
+      $("<span>-1, </span>").prependTo("#div1"); //criando o elemento e adicionando ao começo
+
+      $("#div2").before("<p>Antes do 2</p>");
+      $("#div2").after("<p>Depois do 2</p>");
+
+      $("<p>Antes do 3</p>").insertBefore("#div3"); //criando o elemento e inserindo antes
+      $("<p>Depois do 3</p>").insertAfter("#div3"); //criando o elemento e inserindo depois
+
+      //   $("p.numero").wrap("<div>"); //envolvendo cada 'p' em uma div
+      $("p.numero").wrapAll("<div id='div4'>"); //envolvendo cada 'p' em uma única div
+      $("#div4").empty(); //limpa o conteudo, deixando a div vazia
+      $("#div3, #div4").prev().remove(); //seleciona o conteudo anterior das div e os remove
+
+      //   $("<div>Substituto</div>").replaceAll("body > p");//substitui no caso todos os p dentro do body
+      //   $("body > p").replaceWith("<div>Substituto</div>"); //primeiro passa aos elementos e depois a substituição
+      $("body > p").replaceWith(function () {
+        //trabalhando com função
+        return $("<div>").html($(this).html()).append("!!!");
+      });
     </script>
-</body>
+  </body>
+</html>
