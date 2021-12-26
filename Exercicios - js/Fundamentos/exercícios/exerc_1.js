@@ -5,3 +5,5 @@ function saudacao(nome) {
 
   return [cumprimentar, nome].join(", ").concat("!");
 }
+
+saudacao("José"); // retorna 'Olá, José!'
