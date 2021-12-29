@@ -9,3 +9,6 @@ function simboloMais(quantidade) {
 function simboloMais(quantidade) {
   return "+".repeat(quantidade);
 }
+
+simboloMais(2); // retornará "++"
+simboloMais(4); // retornará "++++"
