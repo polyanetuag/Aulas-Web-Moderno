@@ -6,3 +6,6 @@ function multiplicar(numero1, numero2) {
   for (let i = 0; i < numero2; i++) resultado += numero1;
   return resultado;
 }
+
+multiplicar(5, 5); // retornará 25
+multiplicar(0, 7); // retornará 0
