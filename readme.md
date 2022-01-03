@@ -6,6 +6,7 @@
 ## 📚 Sobre
 Repositório com todos exercícios que fiz no curso  Web Moderno com JavaScript, do Leonardo Leitão
 
+## 🚀 Tecnologias utilizadas
 O curso abrange tecnologias como:
 
 - Javascript
@@ -19,3 +20,11 @@ O curso abrange tecnologias como:
 - Electron
 - MySQL
 - entre outros.
+
+
+## 📝 Licença
+
+Esse projeto está sob a licença MIT.
+
+---
+Desenvolvido com 💜 por Polyane Tuag
