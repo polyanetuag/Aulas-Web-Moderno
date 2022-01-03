@@ -1,1 +1,1 @@
-# Repositorio com todos exercicios que fiz no curso WebModerno
+# Repositório com todos exercícios que fiz no curso  Web Moderno com JavaScript, do Leonardo Leitão
